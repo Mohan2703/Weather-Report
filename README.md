@@ -1,4 +1,4 @@
-# ⛅ Weather Monitoring & Air Quality Dashboard - Power BI
+# ⛅Weather Monitoring & Air Quality Dashboard - PowerBI
 
 [![View Portfolio](https://img.shields.io/badge/View%20Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139)](https://www.datascienceportfol.io/mohan_Srinivas)
 [![View Dashboard](https://img.shields.io/badge/View%20Dashboard-%23000000.svg?style=for-the-badge&logo=Codeforces&logoColor=gold)](https://app.powerbi.com/view?r=eyJrIjoiMDMyZjU4NGMtMTFlMi00ZDBhLWIwNGEtODZkMWM2OTljNzE5IiwidCI6IjM3MzhkYjE5LTA4MzUtNDhmZS05MjhiLWMxZjI3ZmNkN2Y2NCJ9)
