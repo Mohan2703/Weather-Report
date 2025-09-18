@@ -4,21 +4,15 @@
 [![View Dashboard](https://img.shields.io/badge/View%20Dashboard-%23000000.svg?style=for-the-badge&logo=Codeforces&logoColor=gold)](https://app.powerbi.com/view?r=eyJrIjoiMDMyZjU4NGMtMTFlMi00ZDBhLWIwNGEtODZkMWM2OTljNzE5IiwidCI6IjM3MzhkYjE5LTA4MzUtNDhmZS05MjhiLWMxZjI3ZmNkN2Y2NCJ9)
 
 ## Table of Contents
-- [⛅ Weather Monitoring \& Air Quality Dashboard - Power BI](#-weather-monitoring--air-quality-dashboard---power-bi)
-  - [Table of Contents](#table-of-contents)
-  - [Problem Statement](#problem-statement)
-  - [Project Planning using Star Method](#project-planning-using-star-method)
-    - [📝 S - Situation](#-s---situation)
-    - [🎯 T - Task](#-t---task)
-    - [⚡ A - Action](#-a---action)
-    - [🏆 R - Result](#-r---result)
-  - [Data Source](#data-source)
-  - [Data Preprocessing \& ETL](#data-preprocessing--etl)
-  - [Data Modelling](#data-modelling)
-  - [Data Analysis](#data-analysis)
-  - [Dashboard](#dashboard)
-  - [Findings](#findings)
-  - [Tools And Softwares](#tools-and-softwares)
+- [Problem Statement](#problem-statement)
+- [Project Planning using Star Method](#project-planning-using-star-method)
+- [Data Source](#data-source)
+- [Data Preprocessing \& ETL](#data-preprocessing--etl)
+- [Data Modelling](#data-modelling)
+- [Data Analysis](#data-analysis)
+- [Dashboard](#dashboard)
+- [Findings](#findings)
+- [Tools And Softwares](#tools-and-softwares)
 
 
 ## Problem Statement
@@ -28,7 +22,7 @@ $\textsf{\color{blue}{View Problem Statement ➡️}}$
 </summary><br>
 
 Access to consolidated, accurate weather and air quality data is critical for urban residents, policy makers, and planners. However, this information is often fragmented across sources, lacks actionable health context, and is not available in an interactive, real-time analytics dashboard.
-**The Problem:**
+- **The Problem:**
 How can diverse weather and AQI variables be synthesized into a unified dashboard for rapid decision-making, public awareness, and urban planning?
 </details>
 
@@ -45,10 +39,10 @@ $\textsf{\color{blue}{View Stratergy ➡️}}$
 - **Design dashboards:** clear filters for platform, country, campaign, content type, and date range.
 
 ### 📝 S - Situation
-Agencies and urban stakeholders required live, context-rich weather and AQI insights for multiple Indian cities, but data was fragmented, non-intuitive, and lacked health-centric interpretations.
+- Agencies and urban stakeholders required live, context-rich weather and AQI insights for multiple Indian cities, but data was fragmented, non-intuitive, and lacked health-centric interpretations.
 
 ### 🎯 T - Task
-Design and deliver an interactive Power BI dashboard with multi-city weather reporting that provides real-time and forecasted weather and AQI metrics,  incorporates environmental health advisories, and leverages robust data modeling for high-fidelity analytics.
+- Design and deliver an interactive Power BI dashboard with multi-city weather reporting that provides real-time and forecasted weather and AQI metrics,  incorporates environmental health advisories, and leverages robust data modeling for high-fidelity analytics.
 
 ### ⚡ A - Action
 - Imported weather and AQI data streams for cities like Bengaluru, Chennai, Hyderabad, Mumbai, Panaji, and Thiruvananthapuram.
@@ -84,9 +78,8 @@ $\textsf{\color{blue}{View PreProcssing Steps ➡️}}$
 </summary><br>
 
 **Raw weather data was imported from the WeatherAPI into Power BI, and the following ETL process was executed in Power Query:**
-<br>
 
-- 🗂 Master data Preparation 
+#### 🗂 Master data Preparation 
 1. Connected to the WeatherAPI JSON endpoint for each city.
 2. Expanded nested JSON objects (location, current, forecast → day, astro, hour, condition, air_quality).
 3. Applied appropriate data types to columns (e.g., type text for strings, Int64.Type for integers, type number for decimals, type datetime for timestamps).
@@ -94,25 +87,24 @@ $\textsf{\color{blue}{View PreProcssing Steps ➡️}}$
 5. Combined individual city tables into a single Master table using Table.Combine for unified processing.
 6. Created a Master table as the base for all further reference queries.
 
-- 🌞 Daily Forecast ETL
+#### 🌞 Daily Forecast ETL
 1. Referenced the Master table.
 2. Removed unnecessary columns such as Hourly details and Current conditions.
 3. Applied deduplication on {Location, ForecastDate} to ensure unique daily records per city.
 
-- ⏰ Hourly Forecast ETL
+#### ⏰ Hourly Forecast ETL
 1. Referenced the Master table.
 2. Expanded hourly forecast records (forecast.forecastday.hour).
 3. Created separate Date and Hour columns by splitting the timestamp.
 4. Removed duplicate/unnecessary columns not relevant to hourly analysis.
 
-- 🌍 Current Weather ETL
+#### 🌍 Current Weather ETL
 1. Referenced the Master table.
 2. Removed forecast and hourly columns, retaining only current weather snapshot per city.
 3. Cleaned nulls and ensured correct data types for numeric and text fields.
 
-- 🖼️ Dynamic Weather Changing Background
+#### 🖼️ Dynamic Weather Changing Background
 1. Loaded and transformed an Excel file (Bg_Img.xlsx), setting Weather and Bg columns as type text to map weather conditions to background images.
-
 </details>
 
 
@@ -122,7 +114,7 @@ $\textsf{\color{blue}{View PreProcssing Steps ➡️}}$
 $\textsf{\color{blue}{View Modelling ➡️}}$
 </summary><br>
 
-<img width="600" height="430" alt="Image" src="https://github.com/user-attachments/assets/baf7fcba-e41f-4376-ba34-5603da120728" /> <br>
+<img width="600" height="600" alt="Image" src="https://github.com/user-attachments/assets/baf7fcba-e41f-4376-ba34-5603da120728" /> <br> 
 The data model in Power BI was designed to connect fact tables (live, daily, hourly) with supporting dimension and helper tables, enabling flexible and dynamic weather analysis.
 
 - **Tables Used:**
@@ -222,7 +214,7 @@ Hours & " hrs " & Mins & " mins"
 <details>
 <summary>
 $\textsf{\color{blue}{View Images ➡️}}$
-</summary>
+</summary><br>
 
 > ### 1. Weather Report
 > <a href="https://app.powerbi.com/view?r=eyJrIjoiMDMyZjU4NGMtMTFlMi00ZDBhLWIwNGEtODZkMWM2OTljNzE5IiwidCI6IjM3MzhkYjE5LTA4MzUtNDhmZS05MjhiLWMxZjI3ZmNkN2Y2NCJ9" target="_blank"> <img width="650" height="400" alt="Image" src="https://github.com/user-attachments/assets/f2f28ae0-46ff-4338-ab92-4ddea982bb0d" /></a>
